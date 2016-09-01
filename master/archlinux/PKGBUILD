@@ -1,0 +1,29 @@
+# Maintainer: Dmitry Ivanov <ivadmi5@gmail.com>
+pkgname=pg_pathman-git
+pkgver=r336.40c2a42
+pkgrel=1
+pkgdesc="pg_pathman - partitioning tool for PostgreSQL"
+arch=('i686' 'x86_64')
+url="https://github.com/postgrespro/pg_pathman"
+license=('custom:PostgreSQL')
+depends=('postgresql')
+conflicts=('pg_pathman')
+provides=('pg_pathman')
+source=("$pkgname"::'git+https://github.com/postgrespro/pg_pathman')
+makedepends=('git')
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "$pkgname"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+	cd "$pkgname"
+	make USE_PGXS=1
+}
+
+package() {
+	cd "$pkgname"
+	make DESTDIR="$pkgdir/" USE_PGXS=1 install
+}
