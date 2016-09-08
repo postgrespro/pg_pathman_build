@@ -1,0 +1,9 @@
+Source:             postgresql-9.5-pathman
+Package:	    postgresql-9.5-pathman
+Version:	    1.0
+Section:            database
+Priority:           optional
+Maintainer:         Postgres Professional <dba@postrespro.ru>
+Architecture:	    amd64
+Build-Depends:	    postgresql-common, gcc
+Description: 	    The pg_pathman module provides optimized partitioning mechanism and functions to manage partitions.

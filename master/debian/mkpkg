@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+PKGNAME=postgresql-9.5-pathman
+
+git clone --branch master --depth 1 https://github.com/postgrespro/pg_pathman pg_pathman
+cd pg_pathman
+
+mkdir $PKGNAME
+
+USE_PGXS=1 make
+USE_PGXS=1 make DESTDIR=$PKGNAME install
+cp -r ../DEBIAN $PKGNAME
+fakeroot dpkg-deb --build $PKGNAME
+mv $PKGNAME.deb ..
