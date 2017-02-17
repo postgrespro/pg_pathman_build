@@ -1,6 +1,6 @@
 # Maintainer: Dmitry Ivanov <ivadmi5@gmail.com>
 pkgname=pg_pathman-git
-pkgver=r336.40c2a42
+pkgver=r743.0b5edec
 pkgrel=1
 pkgdesc="pg_pathman - partitioning tool for PostgreSQL"
 arch=('i686' 'x86_64')
